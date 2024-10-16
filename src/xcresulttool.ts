@@ -251,7 +251,8 @@ export async function convertResultsToJSON(
     '--path',
     file,
     '--format',
-    'json'
+    'json',
+    '--legacy'
   ]
 
   if (object != null) {
