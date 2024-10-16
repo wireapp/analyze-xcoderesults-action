@@ -249,7 +249,8 @@ function convertResultsToJSON(file, object = null) {
             '--path',
             file,
             '--format',
-            'json'
+            'json',
+            '--legacy'
         ];
         if (object != null) {
             args.push('--id');
