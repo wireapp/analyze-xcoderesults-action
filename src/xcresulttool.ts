@@ -1,13 +1,18 @@
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
-import {ExecOptions} from '@actions/exec/lib/interfaces'
-import {RestEndpointMethodTypes} from '@octokit/rest'
+import {ExecOptions} from '@actions/exec'
 
-export type Annotations = NonNullable<
-  NonNullable<
-    RestEndpointMethodTypes['checks']['create']['parameters']['output']
-  >['annotations']
->
+export type Annotations = Array<{
+  path: string
+  start_line: number
+  end_line: number
+  start_column?: number
+  end_column?: number
+  annotation_level: 'notice' | 'warning' | 'failure'
+  message: string
+  title?: string
+  raw_details?: string
+}>
 
 interface ResultSummary {
   actions: TypedArray<ActionRecord>

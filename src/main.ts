@@ -101,7 +101,7 @@ async function run(): Promise<void> {
 
     core.debug(`Done`)
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed(error instanceof Error ? error.message : String(error))
   }
 }
 
